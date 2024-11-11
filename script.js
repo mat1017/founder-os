@@ -11,4 +11,6 @@ function handleFormSubmission(formClassName) {
     });
  }
  handleFormSubmission(".workshop-form-hubspot");
- 
+
+
+ console.log("data");
