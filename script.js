@@ -18,3 +18,28 @@ $(document).ready(function () {
     
     handleFormSubmission(".workshop-form-hubspot");
 });
+
+$(document).ready(function() {
+    var iframe = $('iframe.testimonial-video');
+    var iframeSrc = iframe.attr('src');
+
+    // Function to play the video
+    function playVideo() {
+        iframe.attr('src', iframeSrc + '?autoplay=1');
+    }
+
+    // Function to pause the video
+    function pauseVideo() {
+        iframe.attr('src', iframeSrc); // This removes autoplay parameter
+    }
+
+    // When ".slide-wrap" is clicked, autoplay the video
+    $('.slide-wrap').on('click', function() {
+        playVideo();
+    });
+
+    // When ".close-modal" or ".x-modal" is clicked, pause the video
+    $('.close-modal, .x-modal').on('click', function() {
+        pauseVideo();
+    });
+});
