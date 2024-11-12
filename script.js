@@ -24,7 +24,7 @@ $(document).ready(function() {
     function playVideo(iframe) {
         var iframeSrc = iframe.attr('src'); // Get the base URL of the iframe
         console.log(iframe);
-        $(iframe+", .video-wrapper").click();
+        $(iframe.attr('class')+", .video-wrapper").click();
         $(iframe).click();
         iframe.attr('src', iframeSrc + '?autoplay=1');  // Add the autoplay parameter to the src
     }
