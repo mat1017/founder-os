@@ -48,3 +48,14 @@ $(document).ready(function() {
         });
     });
 });
+
+$(document).ready(function() {
+    var iframe = $('iframe.testimonial-video-1')[0];
+    var iframeWindow = iframe.contentWindow;
+
+    // Check if the video player has an autoplay feature
+    iframe.onload = function() {
+        iframeWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    };
+});
+
