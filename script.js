@@ -23,9 +23,11 @@ $(document).ready(function() {
     // Function to play the video by resetting the iframe src
     function playVideo(iframe) {
         var iframeSrc = iframe.attr('src'); // Get the base URL of the iframe
+        var iframeClass = "."+iframe.attr('class')+", .video-wrapper, div";
         console.log(iframe);
         // $(iframe.attr('class')+", .video-wrapper, div").click();
-        console.log(iframe.attr('class')+", .video-wrapper, div");
+        console.log(iframeClass);
+        $(iframeClass).click();
         // $(iframe).click();
         iframe.attr('src', iframeSrc + '?autoplay=1');  // Add the autoplay parameter to the src
     }
