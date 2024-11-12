@@ -20,26 +20,31 @@ $(document).ready(function () {
 });
 
 $(document).ready(function() {
-    var iframe = $('iframe.testimonial-video');
-    var iframeSrc = iframe.attr('src');
-
-    // Function to play the video
-    function playVideo() {
-        iframe.attr('src', iframeSrc + '?autoplay=1');
+    // Function to play the video by resetting the iframe src
+    function playVideo(iframe) {
+        var iframeSrc = iframe.attr('src').split('?')[0]; // Get the base URL of the iframe
+        iframe.attr('src', iframeSrc + '?autoplay=1');  // Add the autoplay parameter to the src
     }
 
-    // Function to pause the video
-    function pauseVideo() {
-        iframe.attr('src', iframeSrc); // This removes autoplay parameter
+    // Function to pause the video by resetting the iframe src
+    function pauseVideo(iframe) {
+        var iframeSrc = iframe.attr('src').split('?')[0]; // Get the base URL of the iframe
+        iframe.attr('src', iframeSrc);  // Remove the autoplay parameter to stop the video
     }
 
-    // When ".slide-wrap" is clicked, autoplay the video
-    $('.slide-wrap').on('click', function() {
-        playVideo();
+    // When any ".slide-wrap" is clicked, autoplay the respective video
+    $('.slide-wrap').each(function(index) {
+        $(this).on('click', function() {
+            var videoClass = '.testimonial-video-' + (index + 1); // Dynamically create the class for each video
+            var iframe = $(videoClass); // Find the corresponding iframe
+            playVideo(iframe);  // Play the video
+        });
     });
 
-    // When ".close-modal" or ".x-modal" is clicked, pause the video
+    // When ".close-modal" or ".x-modal" is clicked, pause the respective video
     $('.close-modal, .x-modal').on('click', function() {
-        pauseVideo();
+        $('iframe.testimonial-video-1, iframe.testimonial-video-2, iframe.testimonial-video-3, iframe.testimonial-video-4, iframe.testimonial-video-5').each(function() {
+            pauseVideo($(this));  // Pause each video on the page
+        });
     });
 });
