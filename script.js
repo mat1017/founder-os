@@ -37,6 +37,7 @@ $(document).ready(function() {
         $(this).on('click', function() {
             var videoClass = '.testimonial-video-' + (index + 1); // Dynamically create the class for each video
             console.log(videoClass);
+            console.log(index);
             $(videoClass + "video").click();
             var iframe = $(videoClass); // Find the corresponding iframe
             playVideo(iframe);  // Play the video
