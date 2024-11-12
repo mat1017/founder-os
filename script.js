@@ -36,8 +36,9 @@ $(document).ready(function() {
     $('.slide-wrap').each(function(index) {
         $(this).on('click', function() {
             var videoClass = '.testimonial-video-' + (index + 1); // Dynamically create the class for each video
+            console.log(videoClass);
             $(videoClass).click(function (e) { 
-                console.log("testimonial-"+index)
+                console.log(this)
                 
             });
             var iframe = $(videoClass); // Find the corresponding iframe
