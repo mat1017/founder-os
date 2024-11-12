@@ -32,14 +32,30 @@ $(document).ready(function() {
         iframe.attr('src', iframeSrc);  // Remove the autoplay parameter to stop the video
     }
 
-    // Loop through sw1 to sw5 and handle click events dynamically
-    for (var i = 1; i <= 5; i++) {
-        $('.sw' + i).on('click', function() {
-            var iframe = $('.testimonial-video-' + i); // Find the corresponding iframe dynamically
-            playVideo(iframe);  // Play the video
-            console.log("testimonial-"+i);
-        });
-    }
+    $('.sw1').on('click', function() {
+        var iframe = $('.testimonial-video-1');
+        playVideo(iframe);
+    });
+
+    $('.sw2').on('click', function() {
+        var iframe = $('.testimonial-video-2');
+        playVideo(iframe);
+    });
+
+    $('.sw3').on('click', function() {
+        var iframe = $('.testimonial-video-3');
+        playVideo(iframe);
+    });
+
+    $('.sw4').on('click', function() {
+        var iframe = $('.testimonial-video-4');
+        playVideo(iframe);
+    });
+
+    $('.sw5').on('click', function() {
+        var iframe = $('.testimonial-video-5');
+        playVideo(iframe);
+    });
 
     // When ".close-modal" or ".x-modal" is clicked, pause the respective video
     $('.close-modal, .x-modal').on('click', function() {
