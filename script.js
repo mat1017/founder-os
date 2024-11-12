@@ -32,17 +32,14 @@ $(document).ready(function() {
         iframe.attr('src', iframeSrc);  // Remove the autoplay parameter to stop the video
     }
 
-    // When any ".slide-wrap" is clicked, autoplay the respective video
-    $('.slide-wrap').each(function(index) {
-        $(this).on('click', function() {
-            var videoClass = '.testimonial-video-' + (index + 1); // Dynamically create the class for each video
-            console.log(videoClass);
-            console.log(index);
-            $(videoClass + "video").click();
-            var iframe = $(videoClass); // Find the corresponding iframe
+    // Loop through sw1 to sw5 and handle click events dynamically
+    for (var i = 1; i <= 5; i++) {
+        $('.sw' + i).on('click', function() {
+            var iframe = $('.testimonial-video-' + i); // Find the corresponding iframe dynamically
             playVideo(iframe);  // Play the video
+            console.log(iframe);
         });
-    });
+    }
 
     // When ".close-modal" or ".x-modal" is clicked, pause the respective video
     $('.close-modal, .x-modal').on('click', function() {
