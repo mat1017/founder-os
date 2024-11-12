@@ -37,7 +37,7 @@ $(document).ready(function() {
         $('.sw' + i).on('click', function() {
             var iframe = $('.testimonial-video-' + i); // Find the corresponding iframe dynamically
             playVideo(iframe);  // Play the video
-            console.log(iframe);
+            console.log("testimonial-"+i);
         });
     }
 
