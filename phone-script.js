@@ -20,6 +20,8 @@ $(document).ready(function() {
       function formatPhoneNumber() {
         var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
         input.value = formattedNumber;
+        var countryCode = iti.getSelectedCountryData().dialCode;
+        $(".full-phone-input").val(countryCode);
       }
 
       var form = $(input).closest('form');
@@ -33,7 +35,7 @@ $(document).ready(function() {
         // Set the input value to the full number (including country code)
         input.value = fullNumber;
         console.log(countryCode,fullNumber)
-
+        
         // Optionally, you can add the country code separately in another hidden field
         // Example: $(form).find('input[name="country_code"]').val(countryCode);
       });
