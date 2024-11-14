@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     $('input[ms-code-phone-number]').each(function() {
       var input = this;
@@ -24,7 +23,6 @@ $(document).ready(function() {
 
       var form = $(input).closest('form');
       form.submit(function() {
-        // Ensure the phone number has the country code in the correct international format
         var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.INTERNATIONAL);
         input.value = formattedNumber;
       });
