@@ -24,9 +24,17 @@ $(document).ready(function() {
 
       var form = $(input).closest('form');
       form.submit(function() {
-        // Ensure the phone number has the country code in the correct international format
-        var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.INTERNATIONAL);
-        input.value = formattedNumber;
+        // Get the country code
+        var countryCode = iti.getSelectedCountryData().dialCode;
+        
+        // Get the full international number
+        var fullNumber = iti.getNumber(intlTelInputUtils.numberFormat.INTERNATIONAL);
+
+        // Set the input value to the full number (including country code)
+        input.value = fullNumber;
+
+        // Optionally, you can add the country code separately in another hidden field
+        // Example: $(form).find('input[name="country_code"]').val(countryCode);
       });
     });
   });
