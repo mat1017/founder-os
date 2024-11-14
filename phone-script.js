@@ -21,7 +21,7 @@ $(document).ready(function() {
         var formattedNumber = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
         input.value = formattedNumber;
         var countryCode = iti.getSelectedCountryData().dialCode;
-        $(".full-phone-input").val("+",countryCode,formattedNumber);
+        $(".full-phone-input").val("+"+countryCode+input.value);
       }
 
       var form = $(input).closest('form');
